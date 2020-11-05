@@ -8,7 +8,7 @@
 + PM - 클래스 설계 및 구축 / UI 구현 / 로그인,로그아웃,마이 페이지 / 유저 등급 변경 / 전통 시장 게시판 / 착한 가격 업소 게시판
 
 #### 사용 언어 및 IDE
-+ java 8,JavaScript,jQuery,JSP,HTML5,CSS,Eclipse
++ java 8 , JavaScript , jQuery , JSP , HTML5 , CSS , Eclipse
 
 #### Framework
 + bootstrap ,myBatis
