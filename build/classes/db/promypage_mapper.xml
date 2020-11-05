@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.promypage">
+    <resultMap type="com.dto.ProMyPageDto" id="ProMyPageMap">
+    	<result column="USER_NO" property="user_no"/>
+        <result column="history" property="history"/>
+        <result column="seq" property="seq"/>
+    </resultMap>
+    
+    <select id="proSelectAll" resultMap="ProMyPageMap">
+    	SELECT * FROM PRO_HISTORY WHERE USER_NO=#{user_no} ORDER BY SEQ
+    </select>
+    
+</mapper>

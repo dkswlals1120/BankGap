@@ -1,0 +1,235 @@
+.page2{
+	text-align: center;
+  /* width: 1200px;
+  margin: 0 auto; */
+}
+
+.pagination2{
+/*	width: 100%;*/
+	list-style: none;
+	display: inline-block;
+	padding: 0;
+	/*overflow: hidden;*/
+    /*height: 40px;*/
+    /*border: solid;*/
+    /*margin: 0;*/
+    /*line-height: 2.2;*/
+    margin-top: 20px;
+    clear: both;
+    margin-bottom: -50px;
+}
+
+.pagination2 li{
+	display: inline;
+	text-align: center;
+	/*clear: both;*/
+}
+
+.pagination2 a{
+	float: left;
+	display: block;
+	font-size: 14px;
+	text-decoration: none;
+	color: #263238;
+	padding: 5px 12px;
+	line-height: 1.5;
+}
+
+.first2{
+	margin-right: 15px;
+}
+
+.last2{
+	margin-left: 15px;
+}
+
+.first2:hover, .last2:hover, .left2:hover, .right2:hover{
+	color: #2e9cdf;
+}
+
+.pagintion2 a.active2{
+	cursor:default;
+	color: #ffffff;
+}
+
+.pagination2 a:active{
+	outline:none;
+}
+
+.modal2 .num2{
+	margin-left: 3px;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+/*	-moz-border-radius:100%;
+	-webkit-border-radius: 100%;*/
+	border-radius: 100%;
+}
+
+.modal2 .num2:hover{
+	background-color: #0f4c81;
+	color: #ffffff;
+}
+
+.modal2 .num2.active2, .modal2 .num2:active{
+	background-color: #0f4c81;
+	cursor: pointer;
+	color: #ffffff;
+}
+
+.arrow2 .left2{
+	width: 0;
+	height:  0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid blue;
+}
+
+/************************SEARCH************************/
+
+#sc {  position: relative;  display: inline-block;  padding: 0 0 0 40px;  background: #fff;  border: none;  border-radius: 5px; margin-bottom: 20px;} 
+
+/*.sc form{
+  height: 100px;
+  text-align: center;
+  border: solid;
+  position: relative;
+  top: -50px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #0f4c81
+}*/
+
+
+.sc form{
+  margin: 0 auto;
+  text-align: right;
+  /* width: 1200px; */
+  /*border: solid;*/
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  float: left;
+}
+.sc{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+
+.scb, .scbb {  position: relative;  width: 200px;  height: 50px;  padding: 0;  display: inline-block;  float: left; border:none;} // 검색창과 버튼 너비 크기 설정
+
+
+
+.scb {  color: #666;  border: 0 none; }
+
+
+
+.scb:focus {  outline: 0 none; } /*마우스로 클릭 후 입력할 때의 반응에 대한 설정*/
+
+.scb:focus + .scbb {
+
+  -webkit-transform: translate(0, 0);
+
+      -ms-transform: translate(0, 0);
+
+          transform: translate(0, 0);
+
+  -webkit-transition-duration: 0.3s;
+
+          transition-duration: 0.3s;
+
+}
+.scb:focus + .scbb .fa {
+
+  -webkit-transform: translate(0px, 0);
+
+      -ms-transform: translate(0px, 0);
+
+          transform: translate(0px, 0);
+
+  -webkit-transition-duration: 0.3s;
+
+          transition-duration: 0.3s;
+
+  color: #fff;
+
+}
+
+
+
+.scbb {  z-index: 1;  width: 50px;  border: 0 none;  background: #CFD8DC;  cursor: pointer;  border-radius: 0 5px 5px 0;  
+
+  -webkit-transform: translate(-50px, 0);
+
+      -ms-transform: translate(-50px, 0);
+
+          transform: translate(-50px, 0);
+
+  -webkit-transition-duration: 0.3s;
+
+          transition-duration: 0.3s;
+
+/* 이상 버튼의 공간에 대한 설정*/
+
+}
+
+
+
+.fa-search {  font-size: 1.4rem;  color: #29abe2;  z-index: 3;  top: 25%; 
+
+  -webkit-transform: translate(-190px, 0); 
+
+      -ms-transform: translate(-190px, 0);
+
+          transform: translate(-190px, 0);
+
+  -webkit-transition-duration: 0.3s;
+
+          transition-duration: 0.3s;
+
+  -webkit-transition: all 0.1s ease-in-out;
+
+          transition: all 0.1s ease-in-out;
+
+/* 이상 왼쪽 돋보기 이미지 위치 이동 설정 */
+}
+
+
+/************************SEARCH & PAGE************************/
+.page2 .modal2{
+  position: relative;
+  z-index: 500 !important;
+}
+
+.last2{
+  margin-right: 150px;
+}
+
+.sc>form{
+  float: right;
+}
+
+/************************WriteBtn************************/
+.wbtn{
+	margin-right: 30px;
+	background-color: lightblue;
+	color: white;
+	border: none;
+	width: 120px;
+	height: 50px;
+	border-radius:7px;
+  /* display: inline-block; */
+  float: right;
+}
+
+.btbt{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+
+#pageBar{
+	text-align: center;
+}

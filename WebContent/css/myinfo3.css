@@ -1,0 +1,71 @@
+@charset "UTF-8";
+body {
+    overflow-x: hidden;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  /*Roboto Slab
+  Montserrat
+  */
+  }
+
+header.masthead {
+	background-image: url(../img/bg-img-form.png);
+}
+.masthead .page-section .container{
+	padding-top : 60px !important;
+}
+
+.page-section h3.section-subheading{
+	margin-bottom: 50px;
+}
+.bg-light{
+	background-color: #ffffff !important;
+}
+.infodiv{
+	width : 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.inputbox{
+	height:50px;
+}
+
+.aaa{
+	border-bottom: solid 2px #0f4c81;
+}
+
+.text-uppercase{
+	color : #0f4c81;
+}
+
+.ifdtitle{
+	padding-top: 20px;
+}
+
+.btdiv>input{
+	float:left;
+}
+.btdiv_r{
+	float:right;
+}
+
+.ipdiv{
+	clear : both;
+}
+
+table{
+	width: 80%;
+	margin : 0 auto;
+}
+
+tr{
+	height: 70px;
+}
+th{
+	width: 20%;
+	text-align: right;
+}
+
+td{
+	width: 80%;
+}

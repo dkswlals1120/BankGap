@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+}
+
+header.masthead {
+  background-image: url("../img/proinfo/proInfo.jpg");
+}
+
+.pro{
+    width: 100%;
+    border-bottom: solid 2px lightgray;
+    clear: both;
+    margin: 10px 0;
+}
+
+.pro>img{
+    float: left;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.pro>ul{
+    float: left;
+    list-style: none;
+}
+
+.pro_ti{
+    width: 250px;
+    height: 70px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.pro_name{
+    display: inline-block;
+    font-size: 24pt;
+    /* border: solid 1px; */
+    /* vertical-align: middle; */
+    margin: 10px 20px 10px 0;
+}
+
+.pro_po{
+    border-left: solid 1px;
+    padding-left: 10px;
+}
+
+.pro_ex>span{
+    padding: 10px 10px 0;  
+}
+
+.pro:last-child{
+	border-bottom: none;
+	margin-bottom : 30px;
+}
+
+.ipbox{
+    height: 200px;
+}
+
+.last2{
+	margin-right: 0;
+}

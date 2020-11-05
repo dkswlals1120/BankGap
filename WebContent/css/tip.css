@@ -1,0 +1,23 @@
+
+header.masthead {
+  background-image: url("../img/tip/tip.jpg");
+}
+
+
+
+/************************SEARCH************************/
+
+#sc{
+  margin-right: 10px;
+}
+
+.wbtn {
+	margin-right: 50px;
+}
+
+@media (max-width: 2000px) and (min-width: 1025px){
+	.dropdown-menu li {
+		text-align: center;
+	    padding: 10px;
+    }
+}

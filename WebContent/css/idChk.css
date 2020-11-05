@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+*{
+	box-sizing: border-box;
+}
+.table_ch{
+	text-align: center;
+	border: 2px solid #0f4c81;
+	width: 300px;
+    margin: 50px 50px;
+    height: 150px;
+}
+
+input[name="id"]{
+	text-align:center;
+	margin : 0 auto;
+	border : none;
+}
+
+.table_ch tr{
+	line-height:3;
+}
+
+.table_ch td{
+	width: 100%;
+}
+
+.btn{
+	background-color: #0f4c81;
+    border: none;
+    color: #ffffff;
+    border: 2px solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    
+    width: 85%;
+    height: 100%;
+}
+
+.table_bottom{
+	border-bottom: 2px solid #0f4c81;
+}

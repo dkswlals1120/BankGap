@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sum_amount">
+    <resultMap type="com.dto.sum_dto" id="sumdto">
+        <result column="SUM_AMOUNT" property="sum_amount"/>
+    </resultMap>
+
+    <!-- 그래프 -->
+    <select id="utility" resultMap="sumdto">
+    	SELECT NVL(SUM(AMOUNT), 0) as SUM_AMOUNT FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '공과금'
+    </select>
+    
+    <select id="traffic" resultMap="sumdto">
+    	SELECT NVL(SUM(AMOUNT), 0) as SUM_AMOUNT FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '교통비'
+    </select>
+    
+    <select id="cultural" resultMap="sumdto">
+    	SELECT NVL(SUM(AMOUNT), 0) as SUM_AMOUNT FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '문화생활비'
+    </select>
+    
+    <select id="food" resultMap="sumdto">
+    	SELECT NVL(SUM(AMOUNT), 0) as SUM_AMOUNT FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '식비'
+    </select>
+    
+    <select id="pleasure" resultMap="sumdto">
+    	SELECT NVL(SUM(AMOUNT), 0) as SUM_AMOUNT FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '유흥비'
+    </select>
+    
+</mapper>

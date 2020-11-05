@@ -1,0 +1,59 @@
+header.masthead {
+  background-image: url("../img/ds/gg.jpg");
+}
+
+/************************TABLE************************/
+.table{
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: rgba( 255, 255, 255, 0.4 );
+  /*border-color: #0f4c81;*/
+}
+.thN{
+  width: 10%;
+}
+.thW{
+  width: 20%;
+}
+.thT{
+  width: 45%;
+}
+.thD{
+  width: 25%;
+}
+
+.table thead th{
+  border-bottom: 2px solid #0f4c81;
+  background-color: #ffffff;
+}
+.table th{
+  border-left: none;
+}
+.table thead tr{
+  line-height: 50px;
+  height: 60px;
+}
+.table tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: rgba( 12, 73, 124, 0.2 );
+}
+
+.table tr:last-child{
+  border-bottom: 2px solid #0f4c81;
+}
+
+/************************SEARCH************************/
+
+#sc{
+  margin-bottom: 20px;
+}
+
+.sc>form{
+  float: right;
+}
+
+
+.last2{
+  margin-right: 0;
+}

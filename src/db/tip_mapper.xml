@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.my.board">
+ 
+  <resultMap type="com.dto.BoardDto" id="BoardMap">
+   		<result property = "seq" column="BOARD_NO"/>
+   		<result property = "writer" column="BOARD_WRITER"/>
+   		<result property = "title" column="BOARD_TITLE"/>
+   		<result property = "content" column="BOARD_CONTENT"/>
+   		<result property = "regdate" column="BOARD_REGDATE"/>
+   		<result property = "view" column="BOARD_VIEW"/>
+   		<result property = "filename" column="BOARD_FILENAME"/>
+   		<result property = "refilename" column="BOARD_REFILENAME"/>
+   		<result property = "type" column="BOARD_TYPE"/>
+   		<result property = "userno" column="USER_NO"/>
+   </resultMap>
+   
+   <select id="TselectAll" resultMap="BoardMap">
+		SELECT *
+		FROM BG_BOARD WHERE BOARD_TYPE='T' ORDER BY BOARD_NO DESC
+ 	</select>
+ 	
+ 	<select id="FselectAll" resultMap="BoardMap">
+		SELECT *
+		FROM BG_BOARD WHERE BOARD_TYPE='F' ORDER BY BOARD_NO DESC
+ 	</select>
+ 	
+ 	<select id="EselectAll" resultMap="BoardMap">
+		SELECT *
+		FROM BG_BOARD WHERE BOARD_TYPE='E' ORDER BY BOARD_NO DESC
+ 	</select>
+    
+ 	<select id="selectAll" resultMap="BoardMap">
+		SELECT BOARD_NO, BOARD_WRITER, BOARD_TITLE,BOARD_CONTENT,
+		       BOARD_REGDATE,BOARD_VIEW, BOARD_FILENAME,BOARD_REFILENAME, BOARD_TYPE,
+		       USER_NO
+		FROM BG_BOARD
+ 	</select>
+ 	
+ 	<select id="selectOne" parameterType="int" resultMap="BoardMap" resultType="BoardDto">
+ 		SELECT BOARD_NO, BOARD_WRITER, BOARD_TITLE,BOARD_CONTENT,
+		       BOARD_REGDATE,BOARD_VIEW, BOARD_FILENAME,BOARD_REFILENAME, BOARD_TYPE,
+		       USER_NO
+		FROM BG_BOARD
+		WHERE BOARD_NO=#{seq}
+ 	</select>
+ 	
+ 	<select id="commAll" resultType="CommentDto" parameterType="int">
+ 		SELECT COMM_NO, COMM_WRITER, COMM_CONTENT,COMM_REGDATE,
+ 			  USER_NO, BOARD_NO
+ 		FROM BG_COMMENT
+ 		WHERE BOARD_NO = #{seq}
+ 		ORDER BY COMM_NO DESC
+ 	</select>
+ 	
+ 	<update id="updateView" parameterType="int">
+ 		UPDATE BG_BOARD SET BOARD_VIEW = BOARD_VIEW+1
+ 		WHERE BOARD_NO = #{seq}
+ 	</update>
+ 	
+ 	<select id="commCnt" parameterType="int" resultType="int">
+		SELECT COUNT(COMM_NO)
+		FROM BG_COMMENT
+		WHERE BOARD_NO = #{board_no}	
+ 	</select>
+ 	
+ 	<insert id="commInsert" parameterType="CommentDto">
+ 		INSERT INTO BG_COMMENT VALUES(COMMENT_SEQ.NEXTVAL,#{comm_writer},#{comm_content},SYSDATE,#{user_no},#{board_no})
+ 		
+ 	</insert>
+ 	
+ 	<insert id="boardInsert" parameterType="BoardDto" >
+		INSERT INTO BG_BOARD VALUES(BOARD_SEQ.NEXTVAL,#{writer},#{title},#{content},SYSDATE,0,#{type},#{userno},<choose><when test ="filename != null">#{filename},#{refilename}</when><otherwise>null,null</otherwise></choose>) 		
+ 	</insert>
+ 	
+ 	<delete id="boardDelete" parameterType="int">
+ 		DELETE FROM BG_BOARD WHERE BOARD_NO = #{seq}
+ 	</delete>
+ 	
+ 	<update id="boardUpdate" parameterType="BoardDto">
+ 		UPDATE BG_BOARD SET BOARD_TITLE = #{title}, BOARD_CONTENT=#{content}
+ 		WHERE BOARD_NO = #{seq}
+ 	</update>
+ 	
+ 	<delete id="commDelete" parameterType="int">
+ 		DELETE FROM BG_COMMENT WHERE COMM_NO = #{comm_no}
+ 	</delete>
+ 	
+ 	<select id="commOne" parameterType="int" resultType="CommentDto">
+ 		SELECT COMM_NO, COMM_WRITER, COMM_CONTENT, COMM_REGDATE, COMM_COUNT, USER_NO, BOARD_NO
+ 		FROM BG_COMMENT
+ 		WHERE COMM_NO = #{comm_no}
+ 	</select>
+ 	
+ 	<update id="commUpdate" parameterType="CommentDto">
+ 		UPDATE BG_COMMENT SET COMM_CONTENT = #{comm_content} WHERE COMM_NO=#{comm_no}
+ 	</update>
+ 
+ </mapper>

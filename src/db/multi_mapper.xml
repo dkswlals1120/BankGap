@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.controller">
+	
+	<insert id="signup" parameterType="UserDto">
+		INSERT INTO BG_USER
+		VALUES(USER_SEQ.NEXTVAL, #{user_id}, #{user_pw}, #{user_name}, #{user_gender}, #{user_birth}, #{user_phone}, #{user_email}, #{user_grade}, 'Y')
+	</insert>
+	
+	<select id="idChk" parameterType="String" resultType="UserDto">
+		SELECT * FROM BG_USER WHERE USER_ID=#{user_id}
+	</select>
+	
+	<select id="login" parameterType="UserDto" resultType="UserDto">
+		SELECT * FROM BG_USER WHERE USER_ID=#{user_id} AND USER_PW=#{user_pw} AND USER_ENABLED='Y'
+	</select>
+	
+	<select id="selectall" resultType="UserDto">
+		SELECT *
+		FROM BG_USER ORDER BY USER_NO DESC
+	</select>
+	
+	<select id="selectone" parameterType="int" resultType="UserDto">
+		SELECT * FROM BG_USER WHERE USER_NO=#{user_no}
+	</select>
+	
+	<update id="updateRole" parameterType="UserDto" >
+		UPDATE BG_USER SET USER_GRADE=#{user_grade} WHERE USER_NO=#{user_no}
+	</update>
+</mapper>

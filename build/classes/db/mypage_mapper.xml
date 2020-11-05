@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mypage">
+    <resultMap type="com.dto.MyPageDto" id="MyPageMap">
+    	<result column="USER_NO" property="user_no"/>
+        <result column="PAYNO" property="payno"/>
+        <result column="CATEGORY" property="category"/>
+        <result column="PLACE" property="place"/>
+        <result column="AMOUNT" property="amount"/>
+        <result column="USEDATE" property="usedate"/>
+        <result column="SUM(AMOUNT)" property="amount_sum"/>
+    </resultMap>
+    
+    <select id="selectAll" resultMap="MyPageMap">
+    	  <!-- SELECT * FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} ORDER BY PAYNO DESC -->
+      	 SELECT USER_NO, PAYNO, CATEGORY, PLACE, AMOUNT, TO_CHAR(USEDATE,'YYYY/MM/DD') AS USEDATE FROM BG_MYPAGEUSE WHERE USER_NO= #{user_no} ORDER BY PAYNO DESC
+    </select>
+    
+    <insert id="insert" parameterType="MyPageDto">
+    	INSERT INTO BG_MYPAGEUSE VALUES(#{user_no},(SELECT COUNT(PAYNO) FROM BG_MYPAGEUSE WHERE USER_NO=#{user_no})+1,#{category},#{place},#{amount},#{usedate})
+    </insert>
+    
+    <delete id="delete" parameterType="HashMap">
+    	DELETE BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND PAYNO = #{payno}
+    </delete>
+    
+    <update id="update" parameterType="HashMap">
+    	UPDATE BG_MYPAGEUSE SET PAYNO = (PAYNO-1) WHERE USER_NO=#{user_no} AND PAYNO > #{payno}
+    </update>
+    
+    
+    <!-- 그래프 -->
+    <select id="utility" resultMap="MyPageMap">
+    	SELECT NVL(SUM(AMOUNT), 0) FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '공과금'
+    </select>
+    
+    <select id="traffic" resultMap="MyPageMap">
+    	SELECT NVL(SUM(AMOUNT), 0) FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '교통비'
+    </select>
+    
+    <select id="cultural" resultMap="MyPageMap">
+    	SELECT NVL(SUM(AMOUNT), 0) FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '문화생활비'
+    </select>
+    
+    <select id="food" resultMap="MyPageMap">
+    	SELECT NVL(SUM(AMOUNT), 0) FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '식비'
+    </select>
+    
+    <select id="pleasure" resultMap="MyPageMap">
+    	SELECT NVL(SUM(AMOUNT), 0) FROM BG_MYPAGEUSE WHERE USER_NO = #{user_no} AND CATEGORY = '유흥비'
+    </select>
+    
+    
+    
+    
+    
+</mapper>
